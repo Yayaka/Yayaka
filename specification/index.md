@@ -202,8 +202,10 @@ An action to fetch events.
       An array of objects which have following properties.
       - MUST **identity-host** string
       - MUST **user-id** string
-    - MUST **protocols** array
     - MUST **types** array
+      An array of objects witch have following properties.
+      - MUST **protocol** string
+      - MUST **type** string
     - MAY **older-than** string
       An ID of a event
     - MUST **count** integer
@@ -318,8 +320,10 @@ An action to collect events.
       An array of objects which have following properties.
       - MUST **identity-host** string
       - MUST **user-id** string
-    - MUST **protocols** array
     - MUST **types** array
+      An array of objects witch have following properties.
+      - MUST **protocol** string
+      - MUST **type** string
     - MUST **count** integer
 
 #### subscribe-events
@@ -335,8 +339,10 @@ An action to request and subscribe events.
       An array of objects which have following properties.
       - MUST **identity-host** string
       - MUST **user-id** string
-    - MUST **protocols** array
     - MUST **types** array
+      An array of objects witch have following properties.
+      - MUST **protocol** string
+      - MUST **type** string
     - MUST **count** integer
 
 #### unsubscribe-events
