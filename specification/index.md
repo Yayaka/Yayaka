@@ -43,48 +43,51 @@ Each user can authenticate any number of presentation host users.
 
 ### Actions
 
-Each services SHOULD ignore actions which don't fillful the following conditions.
+There are actions to perform distributed social blogging.
+Answer message of each action has following properties.
+- MUST **status** string
+  "ok" or "error"
+- MAY **reason** string
+  This parameters is the reason of the error.
+- MUST **payload** object
+
+Services MAY ignore actions which don't fillful the following conditions.
+
 
 #### create-user
 
 An action to create a user.
 
 - Destination MUST be an identity service.
-- Sender MUST be from the same host.
+- Sender MUST be a presentation service.
 - Payload have following properties.
   - MUST **user-id** string
   - MAY **attributes** array  
     An array of objects which have following properties.
     - MUST **protocol** string
     - MUST **key** string
-    - MUST **value** string
-
-##### Answer
-
-An answer for this action have a payload which has following properties.
-
-- MUST **succeeded** bool
+    - MUST **value** object
 
 #### update-user-attributes
 
 An action to update user attributes.
 
 - Destination MUST be an identity service.
-- Sender MUST be trusted by the user.
+- Sender MUST be an authorized presentation service.
 - Payload have following properties.
   - MUST **user-id** string
   - MAY **attributes** array  
     An array of objects which have following properties.
     - MUST **protocol** string
     - MUST **key** string
-    - MUST **value** string
+    - MUST **value** object
 
 #### delete-user-attributes
 
 An action to delete user attributes.
 
 - Destination MUST be an identity service.
-- Sender MUST be trusted by the user.
+- Sender MUST be an authorized presentation service.
 - Payload have following properties.
   - MUST **user-id** string
   - MAY **attributes** array  
@@ -94,7 +97,7 @@ An action to delete user attributes.
 
 #### fetch-user
 
-An action to fetch user's profile and trust list.
+An action to fetch user's profile and authorized services list.
 
 - Destination MUST be an identity service.
 - Payload have following properties.
@@ -102,48 +105,54 @@ An action to fetch user's profile and trust list.
 
 #### get-token
 
-An action to fetch a token for trust a service by a user.
-Each identity services MUST return different tokens for each hosts.
+An action to fetch a token for a service.
+Identity services MUST return different tokens every time for each services.
 
 - Destination MUST be an identity service.
-- Sender MUST be from the same host.
+- Sender MUST be an authorized presentation service.
 - Payload have following properties.
   - MUST **user-id** string
+  - MUST **host** string
+  - MUST **service** string
 
-#### trust-you
+#### authenticate-user
 
-An action to let a user to trust a service from an identity service.
+An action to authenticate a user with a token and authorize a service.
+
+- Destination MUST be an identity service.
+- Sender MUST be a presentation service.
+- Payload have following properties.
+  - MUST **user-id** string
+  - MUST **token** string
+
+#### authorize-service
+
+Ac action to authorize a service.
+
+- Destination MUST be an identity service.
+- Sender MUST be an authorized yayaka service other than presentation service.
+- Payload have following properties.
+  - MUST **user-id** string
+  - MUST **host** string
+  - MUST **service** string
+
+#### confirm-service-authorization
+
+An action to confirm authorization with the service.
 
 - Sender MUST be an identity service.
 - Payload have following properties.
   - MUST **user-id** string
-  - MUST **protocol** string
-  - MUST **service** string
-  - MUST **parameters** object
 
-#### trust-me
+#### revoke-service-authorization
 
-An action to let a user to trust a service from a service.
+An action to revoke a authorization.
 
 - Destination MUST be an identity service.
-- Payload have following properties.
-  - MUST **user-id** string
-  - MUST **token** string
-  - MUST **host** string
-  - MUST **protocol** string
-  - MUST **service** string
-  - MUST **parameters** object
-
-#### revoke-trust
-
-An action to revoke a trust.
-
-- Destination MUST be an identity service.
-- Sender MUST be trusted by the user.
+- Sender MUST be an authorized presentation service.
 - Payload have following properties.
   - MUST **user-id** string
   - MUST **host** string
-  - MUST **protocol** string
   - MUST **service** string
 
 #### create-event
@@ -151,7 +160,7 @@ An action to revoke a trust.
 An action to add an event.
 
 - Destination MUST be a repository service.
-- Sender MUST be trusted by the user.
+- Sender MUST be an authorized presentation service.
 - Payload have following properties.
   - MUST **identity-host** string
   - MUST **user-id** string
@@ -164,7 +173,7 @@ An action to add an event.
 An action to broadcast an event.
 
 - Destination MUST be a social graph service.
-- Sender MUST be trusted by the user.
+- Sender MUST be an authorized repository service.
 - Payload have following properties.
   - MUST **event-id** string
   - MUST **identity-host** string
@@ -204,6 +213,7 @@ An action to fetch events.
 An action to create a content.
 
 - Destination MUST be a repository service.
+- Sender MUST be an authorized presentation service.
 - Payload have following properties.
   - MUST **protocol** string
   - MUST **type** string
@@ -222,6 +232,7 @@ An action to fetch a content.
 An action to subscribe a repository.
 
 - Destination MUST be a repository service.
+- Sender MUST be an authorized social graph service.
 - Payload have following properties.
   - MUST **identity-host**
   - MUST **user-id**
@@ -231,6 +242,7 @@ An action to subscribe a repository.
 An action to unsubscribe a repository.
 
 - Destination MUST be a repository service.
+- Sender MUST be an authorized social graph service.
 - Payload have following properties.
   - MUST **identity-host**
   - MUST **user-id**
@@ -240,7 +252,7 @@ An action to unsubscribe a repository.
 An action to follow a social graph service.
 
 - Destination MUST be a social graph service.
-- Sender MUST be trusted by the user.
+- Sender MUST be an authorized presentation service.
 - Payload have following properties
   - MUST **identity-host** string
   - MUST **user-id** string
@@ -253,7 +265,7 @@ An action to follow a social graph service.
 An action to unfollow a social graph service.
 
 - Destination MUST be a social graph service.
-- Sender MUST be trusted by the user.
+- Sender MUST be an authorized presentation service.
 - Payload have following properties
   - MUST **identity-host** string
   - MUST **user-id** string
@@ -266,8 +278,7 @@ An action to unfollow a social graph service.
 An action to follow a remote social graph service.
 
 - Destination MUST be a social graph service.
-- Sender MUST be a social graph service.
-- Sender MUST be trusted by the user.
+- Sender MUST be an authourized social graph service.
 - Payload have following properties
   - MUST **identity-host** string
   - MUST **user-id** string
@@ -279,8 +290,7 @@ An action to follow a remote social graph service.
 An action to unfollow a remote social graph service.
 
 - Destination MUST be a social graph service.
-- Sender MUST be a social graph service.
-- Sender MUST be trusted by the user.
+- Sender MUST be an authourized social graph service.
 - Payload have following properties
   - MUST **identity-host** string
   - MUST **user-id** string
@@ -351,6 +361,7 @@ An action to extend a subscription.
 An action to add a subscription to a repository service.
 
 - Destination MUST be a social graph service.
+- Sender MUST be an authorized presentation service.
 - Payload have following properties.
   - MUST **identity-host**
   - MUST **user-id**
@@ -361,6 +372,7 @@ An action to add a subscription to a repository service.
 An action to remove a subscription to a repository service.
 
 - Destination MUST be a social graph service.
+- Sender MUST be an authorized presentation service.
 - Payload have following properties.
   - MUST **identity-host**
   - MUST **user-id**
