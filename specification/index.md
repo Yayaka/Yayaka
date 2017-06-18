@@ -210,17 +210,6 @@ An action to fetch events.
       An ID of a event
     - MUST **count** integer
 
-#### create-content
-
-An action to create a content.
-
-- Destination MUST be a repository service.
-- Sender MUST be an authorized presentation service.
-- Payload have following properties.
-  - MUST **protocol** string
-  - MUST **type** string
-  - MUST **content** object
-
 #### fetch-content
 
 An action to fetch a content.
