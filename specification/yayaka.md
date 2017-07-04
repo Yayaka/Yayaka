@@ -52,9 +52,12 @@ yayaka
     - MUST **label** string
     - MUST **url** string
 
-- MAY **icon** string
+- MAY **icon**
   - **url** string
     A image URL to use as a user's icon.
+
+- MAY **name**
+  - **text** string
 
 
 ## Event types
