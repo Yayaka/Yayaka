@@ -15,44 +15,46 @@ yayaka
 
 ## User attributes
 
-- MAY **service-labels** array
+- MAY **service-labels**
+  - **labels** array
+    An array of objects which have following properties.
+    - MUST **host** string
+    - MUST **service** string
+    - MUST **label** string
 
-  An array of objects which have following properties.
-  - MUST **host** string
-  - MUST **service** string
-  - MUST **label** string
+- MAY **subscriber-hosts**
+  - **hosts** array
+    An array of hosts to use as a subscriber social graph.
 
-- MAY **subscriber-hosts** array
+- MAY **publisher-hosts**
+  - **hosts** array
+    An array of hosts to use as a publisher social graph.
 
-  An array of hosts to use as a subscriber social graph.
+- MAY **primary-publisher-host**
+  - **host** string
+    A host to use as a primary publisher social graph.
 
-- MAY **publisher-hosts** array
+- MAY **primary-repository-host**
+  - **host** string
+    A host to use as a primary repository.
 
-  An array of hosts to use as a publisher social graph.
+- MAY **primary-notification-host**
+  - **host** string
+    A host to use as a primary notification service.
 
-- MAY **primary-publisher-host** string
+- MAY **biography**
+  - **text** string
+    A host to use as a primary notification service.
 
-  A host to use as a primary publisher social graph.
-
-- MAY **primary-repository-host** string
-
-  A host to use as a primary repository service.
-
-- MAY **primary-notification-host** string
-
-  A host to use as a primary notification service.
-
-- MAY **biography** string
-
-- MAY **links** array
-
-  An array of objects which have following properties.
-  - MUST **label** string
-  - MUST **url** string
+- MAY **links**
+  - **urls** array
+    An array of objects which have following properties.
+    - MUST **label** string
+    - MUST **url** string
 
 - MAY **icon** string
-
-  A image URL to use as a user's icon.
+  - **url** string
+    A image URL to use as a user's icon.
 
 
 ## Event types
