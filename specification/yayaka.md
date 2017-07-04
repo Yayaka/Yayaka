@@ -142,14 +142,14 @@ yayaka
 
 ## Notification types
 
-### followed
+### follow
 
 **body** has following properties
 - MUST **identity-host** string
 - MUST **user-id** string
 - MUST **social-graph-host** string
 
-### replied
+### reply
 
 **body** is the same as the reply event's body.
 
