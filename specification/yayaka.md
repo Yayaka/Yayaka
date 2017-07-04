@@ -67,8 +67,9 @@ yayaka
   - MUST **user-id** string
   - MUST **protocol** string
   - MUST **type** string
+  - MAY **deleted** boolean
   - MAY **body** object
-    A content which has **post-body** is called inlined repost.
+    A content which has **body** is called inlined repost.
 
 ### repost
 
@@ -79,6 +80,7 @@ yayaka
 - MUST **user-id** string
 - MUST **protocol** string
 - MUST **type** string
+- MAY **deleted** boolean
 - SHOULD **post-body** object  
   A repost which has **post-body** is called inlined repost.
 
@@ -91,16 +93,12 @@ yayaka
 - MUST **user-id** string
 - MUST **protocol** string
 - MUST **type** string
+- MAY **deleted** boolean
 - SHOULD **post-body** object  
   A reply which has **post-body** is called inlined reply.
 - MAY **title** string
 - MUST **contents** array
-  An array of objects which have following properties.
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **protocol** string
-  - MUST **type** string
-  - MUST **body** object
+  The same as the *post event*'s *contents*.
 
 ### quote
 
@@ -111,16 +109,12 @@ yayaka
 - MUST **user-id** string
 - MUST **protocol** string
 - MUST **type** string
+- MAY **deleted** boolean
 - SHOULD **post-body** object  
   A quote which has **post-body** is called a inlined quote.
 - MAY **title** string
 - MUST **contents** array
-  An array of objects which have following properties.
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **protocol** string
-  - MUST **type** string
-  - MUST **body** object
+  The same as the *post event*'s *contents*.
 
 ### follow
 
@@ -129,6 +123,17 @@ yayaka
 - MUST **target-identity-host** string
 - MUST **target-user-id** string
 - MUST **target-social-graph-host** string
+
+### delete-content
+
+**body** has following properties.
+- MUST **content-id** string
+
+### update-content
+
+**body** has following properties.
+- MUST **content-id** string
+- MUST **body** object
 
 
 ## Content types
