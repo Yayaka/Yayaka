@@ -431,28 +431,23 @@ An action to fetch timeline.
 
 - Destination MUST be a social graph service.
 - Payload has following properties.
-  - MUST **matchers** array  
-    An array of objects which have following properties.
-    - MUST **users** array  
-      An array of objects which have following properties.
-      - MUST **identity-host** string
-      - MUST **user-id** string
-    - MUST **types** array  
-      An array of objects witch have following properties.
-      - MUST **protocol** string
-      - MUST **type** string
-    - MUST **limit** integer
+  - MUST **identity-host** string
+  - MUST **user-id** string
+  - MAY **older-than-id** string
+  - MAY **limit** integer
 
 # Answer
 
 *body* has following properties.
 - MUST **events** array  
   An array of objects which have following properties.
+  - MUST **event-id** string
   - MUST **identity-host** string
   - MUST **user-id** string
   - MUST **protocol** string
   - MUST **type** string
-  - MUST **body** object  
+  - MUST **body** object
+  - MUST **sender-host** string
   - MUST **created-at** datetime
 
 
@@ -463,17 +458,10 @@ An action to request and subscribe timeline.
 - Destination MUST be a social graph service.
 - Payload has following properties.
   - MUST **expires-sec** integer
-  - MUST **matchers** array  
-    An array of objects which have following properties.
-    - MUST **users** array  
-      An array of objects which have following properties.
-      - MUST **identity-host** string
-      - MUST **user-id** string
-    - MUST **types** array  
-      An array of objects witch have following properties.
-      - MUST **protocol** string
-      - MUST **type** string
-    - MUST **limit** integer
+  - MUST **identity-host** string
+  - MUST **user-id** string
+  - MAY **older-than-id** string
+  - MAY **limit** integer
 
 ### Answer
 
@@ -554,8 +542,8 @@ An action to push an event.
   - MUST **user-id** string
   - MUST **protocol** string
   - MUST **type** string
-  - MUST **sender-host** string
   - MUST **body** object
+  - MUST **sender-host** string
   - MUST **created-at** datetime
 
 # Answer
@@ -586,19 +574,23 @@ An action to push an event.
 - Destination MUST be a notification service.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties.
+  - MUST **identity-host** string
+  - MUST **user-id** string
   - MAY **older-than-id** string
-  - MUST **limit** integer
+  - MAY **limit** integer
 
 # Answer
 
 *body* has following properties.
 - MUST **notifications** array  
   An array of objects which have following properties.
+  - MUST **notification-id** string
   - MUST **identity-host** string
   - MUST **user-id** string
   - MUST **protocol** string
   - MUST **type** string
   - MUST **body** object  
+  - MUST **sender-host** string
   - MUST **created-at** datetime
 
 
@@ -608,25 +600,16 @@ An action to request and subscribe notifications.
 
 - Destination MUST be a notification service.
 - Payload has following properties.
-  - MUST **expires-sec** integer
-  - MUST **matchers** array  
-    An array of objects which have following properties.
-    - MUST **users** array  
-      An array of objects which have following properties.
-      - MUST **identity-host** string
-      - MUST **user-id** string
-    - MUST **types** array  
-      An array of objects witch have following properties.
-      - MUST **protocol** string
-      - MUST **type** string
-    - MUST **limit** integer
+  - MUST **identity-host** string
+  - MUST **user-id** string
+  - MAY **older-than-id** string
+  - MAY **limit** integer
 
 ### Answer
 
 *body* has following properties.
 - MUST **subscription-id** string
 - MUST **expires-sec** integer
-
 
 
 ## unsubscribe-notifications
@@ -665,10 +648,12 @@ An action to push a notification.
 - Destination MUST be a social graph service or presentation service.
 - Payload has following properties.
   - MUST **notification-id** string
+  - MUST **identity-host** string
+  - MUST **user-id** string
   - MUST **protocol** string
   - MUST **type** string
+  - MUST **body** object  
   - MUST **sender-host** string
-  - MUST **body** object
   - MUST **created-at** datetime
 
 ### Answer
