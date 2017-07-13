@@ -304,36 +304,6 @@ An action to fetch a content.
 - MUST **body** object  
 
 
-## subscribe-repository
-
-An action to subscribe a repository.
-
-- Destination MUST be a repository service.
-- Sender MUST be an authorized social graph service.
-- Payload has following properties.
-  - MUST **identity-host**
-  - MUST **user-id**
-
-# Answer
-
-*body* is an empty object.
-
-
-## unsubscribe-repository
-
-An action to unsubscribe a repository.
-
-- Destination MUST be a repository service.
-- Sender MUST be an authorized social graph service.
-- Payload has following properties.
-  - MUST **identity-host**
-  - MUST **user-id**
-
-# Answer
-
-*body* is an empty object.
-
-
 ## follow-social-graph
 
 An action to follow a social graph service.
@@ -496,38 +466,6 @@ An action to extend a timeline subscription.
 
 *body* has following properties.
 - MUST **expires-sec** integer
-
-
-## add-repository-subscription
-
-An action to add a subscription to a repository service.
-
-- Destination MUST be a social graph service.
-- Sender MUST be an authorized presentation service.
-- Payload has following properties.
-  - MUST **identity-host**
-  - MUST **user-id**
-  - MUST **repository-host**
-
-# Answer
-
-*body* is an empty object.
-
-
-## remove-repository-subscription
-
-An action to remove a subscription to a repository service.
-
-- Destination MUST be a social graph service.
-- Sender MUST be an authorized presentation service.
-- Payload has following properties.
-  - MUST **identity-host**
-  - MUST **user-id**
-  - MUST **repository-host**
-
-# Answer
-
-*body* is an empty object.
 
 
 ## push-event

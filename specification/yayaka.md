@@ -42,6 +42,12 @@ yayaka
   - **host** string
     A host to use as a primary notification service.
 
+- MAY **repository-subscriptions**
+  - **subscriptions** array
+    An array of objects which have following properties.
+    - **repository-host** string
+    - **social-graph-host** string
+
 - MAY **biography**
   - **text** string
     A host to use as a primary notification service.
