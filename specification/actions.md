@@ -47,7 +47,7 @@ If the given user name is not available, the identity service generate an availa
 - MUST **user-name** string
 
 
-## check-username-availability
+## check-user-name-availability
 
 An action to check username availability.
 
