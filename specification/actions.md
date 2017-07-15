@@ -101,7 +101,7 @@ Insert the attribute if a value is not *null* and the attribute is not exists.
     - MUST **key** string
     - MUST **value** object or null  
 
-# Answer
+### Answer
 
 *body* is an empty object.
 
@@ -114,7 +114,7 @@ An action to fetch user's profile and authorized services list.
 - Payload has following properties.
   - MUST **user-id** string
 
-# Answer
+### Answer
 
 *body* has following properties.
 - MUST *user-name** string
@@ -123,10 +123,12 @@ An action to fetch user's profile and authorized services list.
   - MUST **protocol** string
   - MUST **key** string
   - MUST **value** object
+  - MAY **sender-host** string
 - MUST **authorized-services** array  
   An array of objects which have following properties.
   - MUST **host** string
   - MUST **service** string
+  - MAY **sender-host** string
 
 
 ## get-token
@@ -141,7 +143,7 @@ Identity services MUST return different tokens every time for every services.
   - MUST **host** string
   - MUST **service** string
 
-# Answer
+### Answer
 
 *body* has following properties.
 - MUST **token** string
@@ -158,7 +160,7 @@ An action to authenticate a user with a token and authorize the sender service.
   - MUST **user-id** string
   - MUST **token** string
 
-# Answer
+### Answer
 
 *body* is an empty object.
 
@@ -175,7 +177,7 @@ Do nothing and return an answer with *status* is *ok* if the given service is al
   - MUST **host** string
   - MUST **service** string
 
-# Answer
+### Answer
 
 *body* is an empty object.
 
@@ -192,7 +194,7 @@ Do nothing and return an answer with *status* is *ok* if the given service is no
   - MUST **host** string
   - MUST **service** string
 
-# Answer
+### Answer
 
 *body* is an empty object.
 
@@ -210,7 +212,7 @@ An action to add an event.
   - MUST **type** string
   - MUST **body** object
 
-# Answer
+### Answer
 
 *body* has following properties.
 - MUST **event-id** string
@@ -230,7 +232,7 @@ An action to broadcast an event.
   - MUST **type** string
   - MUST **body** object
 
-# Answer
+### Answer
 
 *body* is an empty object.
 
@@ -243,7 +245,7 @@ An action to fetch an event.
 - Payload has following properties.
   - MUST **event-id** string
 
-# Answer
+### Answer
 
 *body* has following properties.
 - MUST **identity-host** string
@@ -252,40 +254,7 @@ An action to fetch an event.
 - MUST **type** string
 - MUST **body** object  
   Contained contents SHOULD be inlined.
-
-
-## fetch-events
-
-An action to fetch events.
-
-- Destination MUST be a repository service.
-- Payload has following properties.
-  - MUST **matchers** array  
-    An array of objects which have following properties.
-    - MUST **users** array  
-      An array of objects which have following properties.
-      - MUST **identity-host** string
-      - MUST **user-id** string
-    - MUST **types** array  
-      An array of objects witch have following properties.
-      - MUST **protocol** string
-      - MUST **type** string
-    - MAY **older-than-id** string  
-      An ID of a event
-    - MUST **limit** integer
-
-# Answer
-
-*body* has following properties.
-- MUST **events** array  
-  An array of objects which have following properties.
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **protocol** string
-  - MUST **type** string
-  - MUST **body** object  
-    Contained contents SHOULD be inlined.
-  - MUST **created-at** datetime
+- MAY **sender-host** string
 
 
 ## fetch-content
@@ -296,12 +265,15 @@ An action to fetch a content.
 - Payload has following properties.
   - MUST **content-id** object
 
+### Answer
+
 *body* has following properties.
 - MUST **identity-host** string
 - MUST **user-id** string
 - MUST **protocol** string
 - MUST **type** string
-- MUST **body** object  
+- MUST **body** object
+- MAY **sender-host** string
 
 
 ## follow-social-graph
@@ -317,7 +289,7 @@ An action to follow a social graph service.
   - MUST **target-user-id** string
   - MUST **social-graph-host** string
 
-# Answer
+### Answer
 
 *body* is an empty object.
 
@@ -335,7 +307,7 @@ An action to unfollow a social graph service.
   - MUST **target-user-id** string
   - MUST **social-graph-host** string
 
-# Answer
+### Answer
 
 *body* is an empty object.
 
@@ -352,7 +324,7 @@ An action to follow a remote social graph service.
   - MUST **target-identity-host** string
   - MUST **target-user-id** string
 
-# Answer
+### Answer
 
 *body* is an empty object.
 
@@ -369,7 +341,7 @@ An action to unfollow a remote social graph service.
   - MUST **target-identity-host** string
   - MUST **target-user-id** string
 
-# Answer
+### Answer
 
 *body* is an empty object.
 
@@ -383,7 +355,7 @@ Ac action to fetch the relations of a user.
   - MUST **identity-host** string
   - MUST **user-id** string
 
-# Answer
+### Answer
 
 *body* has following properties.
 - MUST **following** array  
@@ -406,7 +378,7 @@ An action to fetch timeline.
   - MAY **older-than-id** string
   - MAY **limit** integer
 
-# Answer
+### Answer
 
 *body* has following properties.
 - MUST **events** array  
@@ -448,7 +420,7 @@ An action to unsubscribe timeline.
 - Payload has following properties.
   - MUST **subscription-id** string
 
-# Answer
+### Answer
 
 *body* is an empty object.
 
@@ -484,7 +456,7 @@ An action to push an event.
   - MUST **sender-host** string
   - MUST **created-at** datetime
 
-# Answer
+### Answer
 
 *body* is an empty object.
 
@@ -502,7 +474,7 @@ An action to push an event.
   - MUST **type** string
   - MUST **body** object
 
-# Answer
+### Answer
 
 *body* is an empty object.
 
@@ -517,7 +489,7 @@ An action to push an event.
   - MAY **older-than-id** string
   - MAY **limit** integer
 
-# Answer
+### Answer
 
 *body* has following properties.
 - MUST **notifications** array  
@@ -558,7 +530,7 @@ An action to unsubscribe notifications.
 - Payload has following properties.
   - MUST **subscription-id** string
 
-# Answer
+### Answer
 
 *body* is an empty object.
 
