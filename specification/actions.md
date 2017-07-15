@@ -133,15 +133,14 @@ An action to fetch user's profile and authorized services list.
 
 ## get-token
 
-An action to fetch a token for authorizing a service.
-Identity services MUST return different tokens every time for every services.
+An action to fetch a token to authenticate a user.
+Identity services MUST return different tokens for each host.
 
 - Destination MUST be an identity service.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties.
   - MUST **user-id** string
-  - MUST **host** string
-  - MUST **service** string
+  - MUST **presentation-host** string
 
 ### Answer
 
