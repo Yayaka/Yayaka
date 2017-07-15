@@ -146,7 +146,8 @@ Identity services MUST return different tokens for each host.
 
 *body* has following properties.
 - MUST **token** string
-- MUST **expires-sec** integer
+- MUST **expires** integer  
+  A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 
 ## authenticate-user
@@ -398,7 +399,8 @@ An action to request and subscribe timeline.
 
 - Destination MUST be a social graph service.
 - Payload has following properties.
-  - MUST **expires-sec** integer
+  - MUST **expires** integer  
+    A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
   - MUST **identity-host** string
   - MUST **user-id** string
   - MAY **older-than-id** string
@@ -408,7 +410,8 @@ An action to request and subscribe timeline.
 
 *body* has following properties.
 - MUST **subscription-id** string
-- MUST **expires-sec** integer
+- MUST **expires** integer  
+  A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 
 ## unsubscribe-timeline
@@ -431,12 +434,14 @@ An action to extend a timeline subscription.
 - Destination MUST be a social graph service.
 - Payload has following properties.
   - MUST **subscription-id** string
-  - MUST **expires-sec** integer
+  - MUST **expires** integer  
+    A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 ### Answer
 
 *body* has following properties.
-- MUST **expires-sec** integer
+- MUST **expires** integer  
+  A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 
 ## push-event
@@ -518,7 +523,8 @@ An action to request and subscribe notifications.
 
 *body* has following properties.
 - MUST **subscription-id** string
-- MUST **expires-sec** integer
+- MUST **expires** integer  
+  A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 
 ## unsubscribe-notifications
@@ -541,12 +547,14 @@ An action to extend a notifications subscription.
 - Destination MUST be a notification service.
 - Payload has following properties.
   - MUST **subscription-id** string
-  - MUST **expires-sec** integer
+  - MUST **expires** integer  
+    A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 ### Answer
 
 *body* has following properties.
-- MUST **expires-sec** integer
+- MUST **expires** integer  
+  A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 
 ## push-notification
@@ -568,4 +576,5 @@ An action to push a notification.
 ### Answer
 
 *body* has following properties.
-- MUST **expires-sec** integer
+- MUST **expires** integer  
+  A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
