@@ -171,7 +171,7 @@ An action to authorize a service.
 Do nothing and return an answer with *status* is *ok* if the given service is already authorized.
 
 - Destination MUST be an identity service.
-- Sender MUST be an authorized yayaka service other than presentation service.
+- Sender MUST be an authorized presentation service.
 - Payload has following properties.
   - MUST **user-id** string
   - MUST **host** string
