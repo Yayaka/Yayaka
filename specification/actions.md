@@ -1,7 +1,7 @@
 # Actions
 
 Answer message of each action has following properties.
-- MUST **status** string
+- **status** string  
   One of following statuses
   - ok  
     The action is accepted.
@@ -17,12 +17,11 @@ Answer message of each action has following properties.
     The given host is blocked by the service.
   - error  
     The service can't return an answer properly by problems.
-- MAY **error-reason** string  
+- **error-reason** string OPTIONAL  
   The reason of the error for debugging. Any text is allowed.
-- MUST **body** object  
-  *body* MUST be an empty object if *status* is *ok*.
+- **body** object
 
-Services SHOULD ignore any actions which don't fillful the following conditions.
+Services MUST ignore any actions which don't fillful the following conditions.
 
 
 ## create-user
@@ -33,18 +32,18 @@ If the given user name is not available, the identity service generate an availa
 - Destination MUST be an identity service.
 - Sender MUST be a presentation service.
 - Payload has following properties.
-  - MUST **user-name** string
-  - MAY **attributes** array  
+  - **user-name** string
+  - **attributes** array OPTIONAL  
     An array of objects which have following properties.
-    - MUST **protocol** string
-    - MUST **key** string
-    - MUST **value** object
+    - **protocol** string
+    - **key** string
+    - **value** object
 
 ### Answer
 
 *body* has following properties.
-- MUST **user-id** string
-- MUST **user-name** string
+- **user-id** string
+- **user-name** string
 
 
 ## check-user-name-availability
@@ -54,14 +53,14 @@ An action to check username availability.
 - Destination MUST be an identity service.
 - Sender MUST be an presentation service.
 - Payload has following properties.
-  - MUST **user-name** string
+  - **user-name** string
 
 ### Answer
 
 *body* has following properties.
-- MUST *availability* bool  
+- *availability* bool  
   *true* if available and *false* if not.
-- MAY *suggestions* array  
+- *suggestions* array OPTIONAL  
   An array of available user names.
 
 
@@ -72,16 +71,16 @@ An action to update a user name.
 - Destination MUST be an identity service.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties.
-  - MUST **user-id** string
-  - MUST **user-name** string  
+  - **user-id** string
+  - **user-name** string  
     A new user name
 
 ### Answer
 
 *body* has following properties.
-- MUST *user-name* string  
+- *user-name* string  
   The new user name if the user name is changed or current one if not.
-- MAY *suggestions* array  
+- *suggestions* array OPTIONAL  
   An array of available user names.
 
 
@@ -94,12 +93,12 @@ Insert the attribute if a value is not *null* and the attribute is not exists.
 - Destination MUST be an identity service.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties.
-  - MUST **user-id** string
-  - MAY **attributes** array  
+  - **user-id** string
+  - **attributes** array OPTIONAL  
     An array of objects which have following properties.
-    - MUST **protocol** string
-    - MUST **key** string
-    - MUST **value** object or null  
+    - **protocol** string
+    - **key** string
+    - **value** object or null
 
 ### Answer
 
@@ -112,41 +111,41 @@ An action to fetch user's profile and authorized services list.
 
 - Destination MUST be an identity service.
 - Payload has following properties.
-  - MUST **user-id** string
+  - **user-id** string
 
 ### Answer
 
 *body* has following properties.
-- MUST **user-name** string
-- MUST **attributes** array  
+- **user-name** string
+- **attributes** array  
   An array of objects which have following properties.
-  - MUST **protocol** string
-  - MUST **key** string
-  - MUST **value** object
-  - MAY **sender-host** string
-- MUST **authorized-services** array  
+  - **protocol** string
+  - **key** string
+  - **value** object
+  - **sender-host** string OPTIONAL
+- **authorized-services** array  
   An array of objects which have following properties.
-  - MUST **host** string
-  - MUST **service** string
-  - MAY **sender-host** string
+  - **host** string
+  - **service** string
+  - **sender-host** string OPTIONAL
 
 
 ## get-token
 
 An action to fetch a token to authenticate a user.
-Identity services MUST return different tokens for each host.
+Identity services return different tokens for each host.
 
 - Destination MUST be an identity service.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties.
-  - MUST **user-id** string
-  - MUST **presentation-host** string
+  - **user-id** string
+  - **presentation-host** string
 
 ### Answer
 
 *body* has following properties.
-- MUST **token** string
-- MUST **expires** integer  
+- **token** string
+- **expires** integer  
   A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 
@@ -157,8 +156,8 @@ An action to authenticate a user with a token and authorize the sender service.
 - Destination MUST be an identity service.
 - Sender MUST be a presentation service.
 - Payload has following properties.
-  - MUST **user-id** string
-  - MUST **token** string
+  - **user-id** string
+  - **token** string
 
 ### Answer
 
@@ -173,9 +172,9 @@ Do nothing and return an answer with *status* is *ok* if the given service is al
 - Destination MUST be an identity service.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties.
-  - MUST **user-id** string
-  - MUST **host** string
-  - MUST **service** string
+  - **user-id** string
+  - **host** string
+  - **service** string
 
 ### Answer
 
@@ -190,9 +189,9 @@ Do nothing and return an answer with *status* is *ok* if the given service is no
 - Destination MUST be an identity service.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties.
-  - MUST **user-id** string
-  - MUST **host** string
-  - MUST **service** string
+  - **user-id** string
+  - **host** string
+  - **service** string
 
 ### Answer
 
@@ -206,16 +205,16 @@ An action to add an event.
 - Destination MUST be a repository service.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties.
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **protocol** string
-  - MUST **type** string
-  - MUST **body** object
+  - **identity-host** string
+  - **user-id** string
+  - **protocol** string
+  - **type** string
+  - **body** object
 
 ### Answer
 
 *body* has following properties.
-- MUST **event-id** string
+- **event-id** string
 
 
 ## fetch-event
@@ -224,18 +223,18 @@ An action to fetch an event.
 
 - Destination MUST be a repository service.
 - Payload has following properties.
-  - MUST **event-id** string
+  - **event-id** string
 
 ### Answer
 
 *body* has following properties.
-- MUST **identity-host** string
-- MUST **user-id** string
-- MUST **protocol** string
-- MUST **type** string
-- MUST **body** object  
-  Contained contents SHOULD be inlined.
-- MAY **sender-host** string
+- **identity-host** string
+- **user-id** string
+- **protocol** string
+- **type** string
+- **body** object  
+  Contained contents SHOULD MUST be inlined.
+- **sender-host** string OPTIONAL
 
 
 ## follow-social-graph
@@ -245,11 +244,11 @@ An action to follow a social graph service.
 - Destination MUST be a social graph service.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **target-identity-host** string
-  - MUST **target-user-id** string
-  - MUST **social-graph-host** string
+  - **identity-host** string
+  - **user-id** string
+  - **target-identity-host** string
+  - **target-user-id** string
+  - **social-graph-host** string
 
 ### Answer
 
@@ -263,11 +262,11 @@ An action to unfollow a social graph service.
 - Destination MUST be a social graph service.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **target-identity-host** string
-  - MUST **target-user-id** string
-  - MUST **social-graph-host** string
+  - **identity-host** string
+  - **user-id** string
+  - **target-identity-host** string
+  - **target-user-id** string
+  - **social-graph-host** string
 
 ### Answer
 
@@ -281,10 +280,10 @@ An action to follow a remote social graph service.
 - Destination MUST be a social graph service.
 - Sender MUST be an authourized social graph service.
 - Payload has following properties
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **target-identity-host** string
-  - MUST **target-user-id** string
+  - **identity-host** string
+  - **user-id** string
+  - **target-identity-host** string
+  - **target-user-id** string
 
 ### Answer
 
@@ -298,10 +297,10 @@ An action to unfollow a remote social graph service.
 - Destination MUST be a social graph service.
 - Sender MUST be an authourized social graph service.
 - Payload has following properties
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **target-identity-host** string
-  - MUST **target-user-id** string
+  - **identity-host** string
+  - **user-id** string
+  - **target-identity-host** string
+  - **target-user-id** string
 
 ### Answer
 
@@ -314,18 +313,18 @@ Ac action to fetch the relations of a user.
 
 - Destination MUST be a social graph service.
 - Payload has following properties
-  - MUST **identity-host** string
-  - MUST **user-id** string
+  - **identity-host** string
+  - **user-id** string
 
 ### Answer
 
 *body* has following properties.
-- MUST **following** array  
+- **following** array  
   An array of objects which have following properties.
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **social-graph-host** string
-- MUST **followers** array  
+  - **identity-host** string
+  - **user-id** string
+  - **social-graph-host** string
+- **followers** array  
   Same as *following*.
 
 
@@ -335,24 +334,24 @@ An action to fetch timeline.
 
 - Destination MUST be a social graph service.
 - Payload has following properties.
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MAY **older-than-id** string
-  - MAY **limit** integer
+  - **identity-host** string
+  - **user-id** string
+  - **older-than-id** string OPTIONAL
+  - **limit** integer OPTIONAL
 
 ### Answer
 
 *body* has following properties.
-- MUST **events** array  
+- **events** array  
   An array of objects which have following properties.
-  - MUST **event-id** string
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **protocol** string
-  - MUST **type** string
-  - MUST **body** object
-  - MUST **sender-host** string
-  - MUST **created-at** datetime
+  - **event-id** string
+  - **identity-host** string
+  - **user-id** string
+  - **protocol** string
+  - **type** string
+  - **body** object
+  - **sender-host** string
+  - **created-at** datetime
 
 
 ## subscribe-timeline
@@ -361,18 +360,18 @@ An action to request and subscribe timeline.
 
 - Destination MUST be a social graph service.
 - Payload has following properties.
-  - MUST **expires** integer  
+  - **expires** integer  
     A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MAY **older-than-id** string
-  - MAY **limit** integer
+  - **identity-host** string
+  - **user-id** string
+  - **older-than-id** string OPTIONAL
+  - **limit** integer OPTIONAL
 
 ### Answer
 
 *body* has following properties.
-- MUST **subscription-id** string
-- MUST **expires** integer  
+- **subscription-id** string
+- **expires** integer  
   A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 
@@ -382,7 +381,7 @@ An action to unsubscribe timeline.
 
 - Destination MUST be a social graph service.
 - Payload has following properties.
-  - MUST **subscription-id** string
+  - **subscription-id** string
 
 ### Answer
 
@@ -395,14 +394,14 @@ An action to extend a timeline subscription.
 
 - Destination MUST be a social graph service.
 - Payload has following properties.
-  - MUST **subscription-id** string
-  - MUST **expires** integer  
+  - **subscription-id** string
+  - **expires** integer  
     A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 ### Answer
 
 *body* has following properties.
-- MUST **expires** integer  
+- **expires** integer  
   A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 
@@ -413,14 +412,14 @@ An action to push an event.
 - Sender MUST be an authorized social graph service or an authorized repository service.
 - Destination MUST be a social graph service or presentation service.
 - Payload has following properties.
-  - MUST **event-id** string
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **protocol** string
-  - MUST **type** string
-  - MUST **body** object
-  - MUST **sender-host** string
-  - MUST **created-at** datetime
+  - **event-id** string
+  - **identity-host** string
+  - **user-id** string
+  - **protocol** string
+  - **type** string
+  - **body** object
+  - **sender-host** string
+  - **created-at** datetime
 
 ### Answer
 
@@ -432,13 +431,13 @@ An action to push an event.
 - Destination MUST be a notification service.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties.
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **target-identity-host** string
-  - MUST **target-user-id** string
-  - MUST **protocol** string
-  - MUST **type** string
-  - MUST **body** object
+  - **identity-host** string
+  - **user-id** string
+  - **target-identity-host** string
+  - **target-user-id** string
+  - **protocol** string
+  - **type** string
+  - **body** object
 
 ### Answer
 
@@ -450,24 +449,24 @@ An action to push an event.
 - Destination MUST be a notification service.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties.
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MAY **older-than-id** string
-  - MAY **limit** integer
+  - **identity-host** string
+  - **user-id** string
+  - **older-than-id** string OPTIONAL
+  - **limit** integer OPTIONAL
 
 ### Answer
 
 *body* has following properties.
-- MUST **notifications** array  
+- **notifications** array  
   An array of objects which have following properties.
-  - MUST **notification-id** string
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **protocol** string
-  - MUST **type** string
-  - MUST **body** object  
-  - MUST **sender-host** string
-  - MUST **created-at** datetime
+  - **notification-id** string
+  - **identity-host** string
+  - **user-id** string
+  - **protocol** string
+  - **type** string
+  - **body** object
+  - **sender-host** string
+  - **created-at** datetime
 
 
 ## subscribe-notifications
@@ -476,16 +475,16 @@ An action to request and subscribe notifications.
 
 - Destination MUST be a notification service.
 - Payload has following properties.
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MAY **older-than-id** string
-  - MAY **limit** integer
+  - **identity-host** string
+  - **user-id** string
+  - **older-than-id** string OPTIONAL
+  - **limit** integer OPTIONAL
 
 ### Answer
 
 *body* has following properties.
-- MUST **subscription-id** string
-- MUST **expires** integer  
+- **subscription-id** string
+- **expires** integer  
   A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 
@@ -495,7 +494,7 @@ An action to unsubscribe notifications.
 
 - Destination MUST be a notification service.
 - Payload has following properties.
-  - MUST **subscription-id** string
+  - **subscription-id** string
 
 ### Answer
 
@@ -508,14 +507,14 @@ An action to extend a notifications subscription.
 
 - Destination MUST be a notification service.
 - Payload has following properties.
-  - MUST **subscription-id** string
-  - MUST **expires** integer  
+  - **subscription-id** string
+  - **expires** integer  
     A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 ### Answer
 
 *body* has following properties.
-- MUST **expires** integer  
+- **expires** integer  
   A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
 
 
@@ -526,17 +525,17 @@ An action to push a notification.
 - Sender MUST be a social graph service.
 - Destination MUST be a social graph service or presentation service.
 - Payload has following properties.
-  - MUST **notification-id** string
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **protocol** string
-  - MUST **type** string
-  - MUST **body** object  
-  - MUST **sender-host** string
-  - MUST **created-at** datetime
+  - **notification-id** string
+  - **identity-host** string
+  - **user-id** string
+  - **protocol** string
+  - **type** string
+  - **body** object
+  - **sender-host** string
+  - **created-at** datetime
 
 ### Answer
 
 *body* has following properties.
-- MUST **expires** integer  
+- **expires** integer  
   A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.

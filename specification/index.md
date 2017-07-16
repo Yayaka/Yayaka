@@ -3,11 +3,6 @@
 *Yayaka Protocol* is a protocol for highly distributed social blogging.
 
 
-## Date and Time Format
-
-ISO8601
-
-
 ## Name
 
 yayaka
@@ -130,25 +125,25 @@ An *notification service* SHOULD implement following actions' handlers.
 
 *parameters* has following properties.
 
-- MAY **blocked-actions** array  
+- **blocked-actions** array OPTIONAL  
   An array of event names.
-- MUST **subprotocols** array
+- **subprotocols** array
   An array of objects which have following properties
   Same service protocols with different versions are allowed.
 
-  - MUST **name** string  
+  - **name** string  
     The name of the subprotocol
-  - MUST **version** semver  
+  - **version** semver  
     The version of the subprotocol
-  - MUST **user-attributes** array  
+  - **user-attributes** array  
     An array of supported keys
-  - MUST **event-types** array  
+  - **event-types** array  
     An array of supported types
-  - MUST **content-types** array  
+  - **content-types** array  
     An array of supported types
-  - MUST **notification-types** array  
+  - **notification-types** array  
     An array of supported types
-  - MAY **parameters** object  
+  - **parameters** object OPTIONAL  
     The parameters for the service protocol
 
 ## Subprotocol
@@ -157,12 +152,12 @@ A *subprotocol* specifies additional user attributes, types of events, types of 
 
 A specification of service protocol contains following descriptions:
 
-- MUST its name
-- MUST its version
-- can list of user attributes
-- can list of events types
-- can list of contents types
-- can list of notification types
-- can parameters to configure
+- its name
+- its version
+- list of user attributes OPTIONAL
+- list of events types OPTIONAL
+- list of contents types OPTIONAL
+- list of notification types OPTIONAL
+- parameters to configure OPTIONAL
 
 ## [Yayaka subprotocol](yayaka.md)

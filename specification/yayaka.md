@@ -15,54 +15,54 @@ yayaka
 
 ## User attributes
 
-- MAY **service-labels**
-  - **labels** array
+- **service-labels** OPTIONAL
+  - **labels** array  
     An array of objects which have following properties.
-    - MUST **host** string
-    - MUST **service** string
-    - MUST **label** string
+    - **host** string
+    - **service** string
+    - **label** string
 
-- MAY **subscriber-hosts**
-  - **hosts** array
+- **subscriber-hosts** OPTIONAL
+  - **hosts** array  
     An array of hosts to use as a subscriber social graph.
 
-- MAY **publisher-hosts**
-  - **hosts** array
+- **publisher-hosts** OPTIONAL
+  - **hosts** array  
     An array of hosts to use as a publisher social graph.
 
-- MAY **primary-publisher-host**
-  - **host** string
+- **primary-publisher-host** OPTIONAL
+  - **host** string  
     A host to use as a primary publisher social graph.
 
-- MAY **primary-repository-host**
-  - **host** string
+- **primary-repository-host** OPTIONAL
+  - **host** string  
     A host to use as a primary repository.
 
-- MAY **primary-notification-host**
-  - **host** string
+- **primary-notification-host** OPTIONAL
+  - **host** string  
     A host to use as a primary notification service.
 
-- MAY **repository-subscriptions**
-  - **subscriptions** array
+- **repository-subscriptions** OPTIONAL
+  - **subscriptions** array  
     An array of objects which have following properties.
     - **repository-host** string
     - **social-graph-host** string
 
-- MAY **biography**
-  - **text** string
+- **biography** OPTIONAL
+  - **text** string  
     A host to use as a primary notification service.
 
-- MAY **links**
-  - **urls** array
+- **links** OPTIONAL
+  - **urls** array  
     An array of objects which have following properties.
-    - MUST **label** string
-    - MUST **url** string
+    - **label** string
+    - **url** string
 
-- MAY **icon**
-  - **url** string
+- **icon** OPTIONAL
+  - **url** string  
     A image URL to use as a user's icon.
 
-- MAY **name**
+- **name** OPTIONAL
   - **text** string
 
 
@@ -71,66 +71,66 @@ yayaka
 ### post
 
 **body** has following properties.
-- MAY **title** string
-- MUST **contents** array
+- **title** string OPTIONAL
+- **contents** array  
   An array of objects which have following properties.
-  - MUST **protocol** string
-  - MUST **type** string
-  - MUST **body** object
+  - **protocol** string
+  - **type** string
+  - **body** object
 
 ### repost
 
 **body** has following properties.
-- MUST **repository-host** string
-- MUST **event-id** string
-- MUST **identity-host** string
-- MUST **user-id** string
-- MUST **post-body** object
+- **repository-host** string
+- **event-id** string
+- **identity-host** string
+- **user-id** string
+- **post-body** object
 
 ### reply
 
 **body** has following properties.
-- MUST **repository-host** string
-- MUST **event-id** string
-- MUST **identity-host** string
-- MUST **user-id** string
-- MUST **post-body** object
-- MAY **title** string
-- MUST **contents** array
+- **repository-host** string
+- **event-id** string
+- **identity-host** string
+- **user-id** string
+- **post-body** object
+- **title** string OPTIONAL
+- **contents** array  
   The same as the *post event*'s *contents*.
 
 ### quote
 
 **body** has following properties.
-- MUST **repository-host** string
-- MUST **event-id** string
-- MUST **identity-host** string
-- MUST **user-id** string
-- MUST **post-body** object
-- MAY **title** string
-- MUST **contents** array
+- **repository-host** string
+- **event-id** string
+- **identity-host** string
+- **user-id** string
+- **post-body** object
+- **title** string OPTIONAL
+- **contents** array  
   The same as the *post event*'s *contents*.
 
 ### follow
 
 **body** has following properties.
-- MUST **social-graph-host** string
-- MUST **target-identity-host** string
-- MUST **target-user-id** string
-- MUST **target-social-graph-host** string
+- **social-graph-host** string
+- **target-identity-host** string
+- **target-user-id** string
+- **target-social-graph-host** string
 
 ### delete-post
 
 Deletes post, repost, reply or quote.
 
 **body** has following properties.
-- MUST **event-id** string
+- **event-id** string
 
 ### update-post
 
 **body** has following properties.
-- MUST **event-id** string
-- MUST **body** object
+- **event-id** string
+- **body** object
 
 
 ## Content types
@@ -138,8 +138,8 @@ Deletes post, repost, reply or quote.
 ### plaintext
 
 **body** has following properties
-- MAY **label** string
-- MUST **text** string
+- **label** string OPTIONAL
+- **text** string
 
 
 ## Notification types
@@ -147,9 +147,9 @@ Deletes post, repost, reply or quote.
 ### follow
 
 **body** has following properties
-- MUST **identity-host** string
-- MUST **user-id** string
-- MUST **social-graph-host** string
+- **identity-host** string
+- **user-id** string
+- **social-graph-host** string
 
 ### reply
 
