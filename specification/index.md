@@ -159,10 +159,10 @@ A specification of service protocol contains following descriptions:
 
 - MUST its name
 - MUST its version
-- MAY list of user attributes
-- MAY list of events types
-- MAY list of contents types
-- MAY list of notification types
-- MAY parameters to configure
+- can list of user attributes
+- can list of events types
+- can list of contents types
+- can list of notification types
+- can parameters to configure
 
 ## [Yayaka subprotocol](yayaka.md)

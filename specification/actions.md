@@ -117,7 +117,7 @@ An action to fetch user's profile and authorized services list.
 ### Answer
 
 *body* has following properties.
-- MUST *user-name** string
+- MUST **user-name** string
 - MUST **attributes** array  
   An array of objects which have following properties.
   - MUST **protocol** string
@@ -235,25 +235,6 @@ An action to fetch an event.
 - MUST **type** string
 - MUST **body** object  
   Contained contents SHOULD be inlined.
-- MAY **sender-host** string
-
-
-## fetch-content
-
-An action to fetch a content.
-
-- Destination MUST be a repository service.
-- Payload has following properties.
-  - MUST **content-id** object
-
-### Answer
-
-*body* has following properties.
-- MUST **identity-host** string
-- MUST **user-id** string
-- MUST **protocol** string
-- MUST **type** string
-- MUST **body** object
 - MAY **sender-host** string
 
 
