@@ -218,25 +218,6 @@ An action to add an event.
 - MUST **event-id** string
 
 
-## broadcast-event
-
-An action to broadcast an event.
-
-- Destination MUST be a social graph service.
-- Sender MUST be an authorized repository service.
-- Payload has following properties.
-  - MUST **event-id** string
-  - MUST **identity-host** string
-  - MUST **user-id** string
-  - MUST **protocol** string
-  - MUST **type** string
-  - MUST **body** object
-
-### Answer
-
-*body* is an empty object.
-
-
 ## fetch-event
 
 An action to fetch an event.
@@ -448,7 +429,7 @@ An action to extend a timeline subscription.
 
 An action to push an event.
 
-- Sender MUST be a social graph service.
+- Sender MUST be an authorized social graph service or an authorized repository service.
 - Destination MUST be a social graph service or presentation service.
 - Payload has following properties.
   - MUST **event-id** string
