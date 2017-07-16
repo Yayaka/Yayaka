@@ -83,18 +83,12 @@ yayaka
 **body** has following properties.
 - **repository-host** string
 - **event-id** string
-- **identity-host** string
-- **user-id** string
-- **post-body** object
 
 ### reply
 
 **body** has following properties.
 - **repository-host** string
 - **event-id** string
-- **identity-host** string
-- **user-id** string
-- **post-body** object
 - **title** string OPTIONAL
 - **contents** array  
   The same as the *post event*'s *contents*.
@@ -104,9 +98,6 @@ yayaka
 **body** has following properties.
 - **repository-host** string
 - **event-id** string
-- **identity-host** string
-- **user-id** string
-- **post-body** object
 - **title** string OPTIONAL
 - **contents** array  
   The same as the *post event*'s *contents*.
