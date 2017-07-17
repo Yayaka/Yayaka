@@ -235,6 +235,8 @@ An action to fetch an event.
 - **body** object  
   Contained contents SHOULD MUST be inlined.
 - **sender-host** string OPTIONAL
+- **created-at** Unix time
+
 
 
 ## follow-social-graph
@@ -351,7 +353,7 @@ An action to fetch timeline.
   - **type** string
   - **body** object
   - **sender-host** string
-  - **created-at** datetime
+  - **created-at** Unix time
 
 
 ## subscribe-timeline
@@ -419,7 +421,7 @@ An action to push an event.
   - **type** string
   - **body** object
   - **sender-host** string
-  - **created-at** datetime
+  - **created-at** Unix time
 
 ### Answer
 
@@ -466,7 +468,7 @@ An action to push an event.
   - **type** string
   - **body** object
   - **sender-host** string
-  - **created-at** datetime
+  - **created-at** Unix time
 
 
 ## subscribe-notifications
@@ -532,7 +534,7 @@ An action to push a notification.
   - **type** string
   - **body** object
   - **sender-host** string
-  - **created-at** datetime
+  - **created-at** Unix time
 
 ### Answer
 
