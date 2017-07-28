@@ -3,6 +3,11 @@
 *Yayaka Protocol* is a protocol for highly distributed social blogging.
 
 
+## Date and Time Format
+
+ISO8601
+
+
 ## Name
 
 yayaka

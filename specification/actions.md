@@ -78,9 +78,9 @@ An action to update a user name.
 ### Answer
 
 *body* has following properties.
-- *user-name* string  
+- **user-name** string  
   The new user name if the user name is changed or current one if not.
-- *suggestions* array OPTIONAL  
+- **suggestions** array OPTIONAL  
   An array of available user names.
 
 
@@ -235,7 +235,7 @@ An action to fetch an event.
 - **body** object  
   Contained contents SHOULD MUST be inlined.
 - **sender-host** string OPTIONAL
-- **created-at** Unix time
+- **created-at** datetime
 
 
 
@@ -353,7 +353,7 @@ An action to fetch timeline.
   - **type** string
   - **body** object
   - **sender-host** string
-  - **created-at** Unix time
+  - **created-at** datetime
 
 
 ## subscribe-timeline
@@ -421,7 +421,7 @@ An action to push an event.
   - **type** string
   - **body** object
   - **sender-host** string
-  - **created-at** Unix time
+  - **created-at** datetime
 
 ### Answer
 
@@ -468,7 +468,7 @@ An action to push an event.
   - **type** string
   - **body** object
   - **sender-host** string
-  - **created-at** Unix time
+  - **created-at** datetime
 
 
 ## subscribe-notifications
@@ -534,7 +534,7 @@ An action to push a notification.
   - **type** string
   - **body** object
   - **sender-host** string
-  - **created-at** Unix time
+  - **created-at** datetime
 
 ### Answer
 
