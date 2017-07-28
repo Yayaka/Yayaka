@@ -239,70 +239,70 @@ An action to fetch an event.
 
 
 
-## follow-social-graph
+## subscribe
 
-An action to follow a social graph service.
-
-- Destination MUST be a social graph service.
-- Sender MUST be an authorized presentation service.
-- Payload has following properties
-  - **identity-host** string
-  - **user-id** string
-  - **target-identity-host** string
-  - **target-user-id** string
-  - **social-graph-host** string
-
-### Answer
-
-*body* is an empty object.
-
-
-## unfollow-social-graph
-
-An action to unfollow a social graph service.
+An action to subscribe a social graph service.
 
 - Destination MUST be a social graph service.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties
-  - **identity-host** string
-  - **user-id** string
-  - **target-identity-host** string
-  - **target-user-id** string
-  - **social-graph-host** string
+  - **subscriber-identity-host** string
+  - **subscriber-user-id** string
+  - **publisher-identity-host** string
+  - **publisher-user-id** string
+  - **publisher-social-graph-host** string
 
 ### Answer
 
 *body* is an empty object.
 
 
-## follow-remote-social-graph
+## unsubscribe
 
-An action to follow a remote social graph service.
+An action to unsubscribe a social graph service.
 
 - Destination MUST be a social graph service.
-- Sender MUST be an authourized social graph service.
+- Sender MUST be an authorized presentation service.
 - Payload has following properties
-  - **identity-host** string
-  - **user-id** string
-  - **target-identity-host** string
-  - **target-user-id** string
+  - **subscriber-identity-host** string
+  - **subscriber-user-id** string
+  - **publisher-identity-host** string
+  - **publisher-user-id** string
+  - **publisher-social-graph-host** string
 
 ### Answer
 
 *body* is an empty object.
 
 
-## unfollow-remote-social-graph
+## add-subscriber
 
-An action to unfollow a remote social graph service.
+An action to add a subscriber.
 
 - Destination MUST be a social graph service.
 - Sender MUST be an authourized social graph service.
 - Payload has following properties
-  - **identity-host** string
-  - **user-id** string
-  - **target-identity-host** string
-  - **target-user-id** string
+  - **subscriber-identity-host** string
+  - **subscriber-user-id** string
+  - **publisher-identity-host** string
+  - **publisher-user-id** string
+
+### Answer
+
+*body* is an empty object.
+
+
+## remove-subscriber
+
+An action to remove a subscriber.
+
+- Destination MUST be a social graph service.
+- Sender MUST be an authourized social graph service.
+- Payload has following properties
+  - **subscriber-identity-host** string
+  - **subscriber-user-id** string
+  - **publisher-identity-host** string
+  - **publisher-user-id** string
 
 ### Answer
 
@@ -411,7 +411,7 @@ An action to extend a timeline subscription.
 
 An action to push an event.
 
-- Sender MUST be an authorized social graph service or an authorized repository service.
+- Sender MUST be an authorized social graph service.
 - Destination MUST be a social graph service or presentation service.
 - Payload has following properties.
   - **event-id** string
@@ -426,6 +426,23 @@ An action to push an event.
 ### Answer
 
 *body* is an empty object.
+
+
+## broadcast-event
+
+An action to broadcast an event.
+
+- Sender MUST be an authorized repository service.
+- Destination MUST be a social graph service.
+- Payload has following properties.
+  - **event-id** string
+  - **identity-host** string
+  - **user-id** string
+  - **protocol** string
+  - **type** string
+  - **body** object
+  - **sender-host** string
+  - **created-at** datetime
 
 
 ## create-notification
