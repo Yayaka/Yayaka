@@ -522,9 +522,9 @@ An action to unsubscribe notifications.
 *body* is an empty object.
 
 
-## extend-notifications-subscription
+## extend-notification-subscription
 
-An action to extend a notifications subscription.
+An action to extend a notification subscription.
 
 - Destination MUST be a notification service.
 - Payload has following properties.
