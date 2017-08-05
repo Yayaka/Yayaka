@@ -48,6 +48,12 @@ yayaka
     - **repository-host** string
     - **social-graph-host** string
 
+- **max-timeline-subscription-length** OPTIONAL
+  - **seconds** integer
+
+- **max-notification-subscription-length** OPTIONAL
+  - **seconds** integer
+
 - **biography** OPTIONAL
   - **text** string  
     A host to use as a primary notification service.
