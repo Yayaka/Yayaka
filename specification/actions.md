@@ -346,6 +346,7 @@ An action to fetch timeline.
 *body* has following properties.
 - **events** array  
   An array of objects which have following properties.
+  - **repository-host** host
   - **event-id** string
   - **identity-host** string
   - **user-id** string
@@ -414,6 +415,7 @@ An action to push an event.
 - Sender MUST be an authorized social graph service.
 - Destination MUST be a social graph service or presentation service.
 - Payload has following properties.
+  - **repository-host** host
   - **event-id** string
   - **identity-host** string
   - **user-id** string
