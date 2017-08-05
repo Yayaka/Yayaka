@@ -321,13 +321,13 @@ Ac action to fetch the relations of a user.
 ### Answer
 
 *body* has following properties.
-- **following** array  
+- **subscriptions** array  
   An array of objects which have following properties.
   - **identity-host** string
   - **user-id** string
   - **social-graph-host** string
-- **followers** array  
-  Same as *following*.
+- **subscribers** array  
+  Same as **following**.
 
 
 ## fetch-timeline
