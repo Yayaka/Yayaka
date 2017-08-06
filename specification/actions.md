@@ -477,6 +477,7 @@ An action to broadcast an event.
 *body* has following properties.
 - **notifications** array  
   An array of objects which have following properties.
+  - **notification-host** string
   - **notification-id** string
   - **identity-host** string
   - **user-id** string
@@ -543,6 +544,7 @@ An action to push a notification.
 - Sender MUST be a social graph service.
 - Destination MUST be a social graph service or presentation service.
 - Payload has following properties.
+  - **notification-host** string
   - **notification-id** string
   - **identity-host** string
   - **user-id** string
