@@ -445,6 +445,10 @@ An action to broadcast an event.
   - **sender-host** string
   - **created-at** datetime
 
+### Answer
+
+*body* is an empty object.
+
 
 ## create-notification
 
