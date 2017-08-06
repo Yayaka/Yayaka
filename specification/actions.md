@@ -238,7 +238,6 @@ An action to fetch an event.
 - **created-at** datetime
 
 
-
 ## subscribe
 
 An action to subscribe a social graph service.
@@ -338,7 +337,6 @@ An action to fetch timeline.
 - Payload has following properties.
   - **identity-host** string
   - **user-id** string
-  - **older-than-id** string OPTIONAL
   - **limit** integer OPTIONAL
 
 ### Answer
@@ -367,7 +365,6 @@ An action to request and subscribe timeline.
     A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
   - **identity-host** string
   - **user-id** string
-  - **older-than-id** string OPTIONAL
   - **limit** integer OPTIONAL
 
 ### Answer
