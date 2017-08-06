@@ -373,6 +373,8 @@ An action to request and subscribe timeline.
 - **subscription-id** string
 - **expires** integer  
   A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
+- **events** array  
+  Same as the *subscribe-timeline*'s one.
 
 
 ## unsubscribe-timeline
@@ -505,6 +507,8 @@ An action to request and subscribe notifications.
 - **subscription-id** string
 - **expires** integer  
   A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
+- **notifications** array  
+  Same as the *fetch-notifications*' one.
 
 
 ## unsubscribe-notifications
