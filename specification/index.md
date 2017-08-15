@@ -56,7 +56,6 @@ An *repository service* SHOULD implement following actions' handlers.
 
 - create-event
 - fetch-event
-- fetch-content
 
 ### Social graph service
 
@@ -91,7 +90,7 @@ An *social graph service* SHOULD implement following actions' handlers.
 - subscribe-timeline
 - unsubscribe-timeline
 - extend-timeline-subscription
-- push-event
+- broadcast-event
 
 ### Presentation service
 

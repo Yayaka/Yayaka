@@ -412,8 +412,9 @@ An action to extend a timeline subscription.
 An action to push an event.
 
 - Sender MUST be an authorized social graph service.
-- Destination MUST be a social graph service or presentation service.
+- Destination MUST be a presentation service.
 - Payload has following properties.
+  - **subscription-id** string
   - **repository-host** host
   - **event-id** string
   - **identity-host** string
@@ -433,9 +434,11 @@ An action to push an event.
 
 An action to broadcast an event.
 
-- Sender MUST be an authorized repository service.
+- Sender MUST be an authorized repository service or social graph service.
 - Destination MUST be a social graph service.
 - Payload has following properties.
+  - **repository-host** host  
+    If the sender is a repository service, this must be the same as the sender host.
   - **event-id** string
   - **identity-host** string
   - **user-id** string
@@ -552,6 +555,7 @@ An action to push a notification.
 - Sender MUST be a social graph service.
 - Destination MUST be a social graph service or presentation service.
 - Payload has following properties.
+  - **subscription-id** string
   - **notification-host** string
   - **notification-id** string
   - **identity-host** string
