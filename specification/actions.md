@@ -456,120 +456,18 @@ An action to broadcast an event.
 
 ## create-notification
 
-- Destination MUST be a notification service.
+An action to create a notification.
+
 - Sender MUST be an authorized presentation service.
+- Destination MUST be a notification service.
 - Payload has following properties.
-  - **identity-host** string
+  - **identity-host** host
   - **user-id** string
-  - **target-identity-host** string
-  - **target-user-id** string
   - **protocol** string
   - **type** string
   - **body** object
 
 ### Answer
 
-*body* is an empty object.
-
-
-## fetch-notifications
-
-- Destination MUST be a notification service.
-- Sender MUST be an authorized presentation service.
-- Payload has following properties.
-  - **identity-host** string
-  - **user-id** string
-  - **older-than-id** string OPTIONAL
-  - **limit** integer OPTIONAL
-
-### Answer
-
 *body* has following properties.
-- **notifications** array  
-  An array of objects which have following properties.
-  - **notification-host** string
-  - **notification-id** string
-  - **identity-host** string
-  - **user-id** string
-  - **protocol** string
-  - **type** string
-  - **body** object
-  - **sender-host** string
-  - **created-at** datetime
-
-
-## subscribe-notifications
-
-An action to request and subscribe notifications.
-
-- Destination MUST be a notification service.
-- Payload has following properties.
-  - **identity-host** string
-  - **user-id** string
-  - **older-than-id** string OPTIONAL
-  - **limit** integer OPTIONAL  
-    Default value is `0`.
-
-### Answer
-
-*body* has following properties.
-- **subscription-id** string
-- **expires** integer  
-  A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
-- **notifications** array  
-  Same as the *fetch-notifications*' one.
-
-
-## unsubscribe-notifications
-
-An action to unsubscribe notifications.
-
-- Destination MUST be a notification service.
-- Payload has following properties.
-  - **subscription-id** string
-
-### Answer
-
-*body* is an empty object.
-
-
-## extend-notification-subscription
-
-An action to extend a notification subscription.
-
-- Destination MUST be a notification service.
-- Payload has following properties.
-  - **subscription-id** string
-  - **expires** integer  
-    A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
-
-### Answer
-
-*body* has following properties.
-- **expires** integer  
-  A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
-
-
-## push-notification
-
-An action to push a notification.
-
-- Sender MUST be a social graph service.
-- Destination MUST be a social graph service or presentation service.
-- Payload has following properties.
-  - **subscription-id** string
-  - **notification-host** string
-  - **notification-id** string
-  - **identity-host** string
-  - **user-id** string
-  - **protocol** string
-  - **type** string
-  - **body** object
-  - **sender-host** string
-  - **created-at** datetime
-
-### Answer
-
-*body* has following properties.
-- **expires** integer  
-  A number of seconds from 1970-01-01T00:00:00Z without applying leap seconds.
+- **notification-id** string

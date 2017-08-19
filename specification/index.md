@@ -104,22 +104,16 @@ Each user can authenticate any number of presentation host users.
 An *presentation service* SHOULD implement following actions' handlers.
 
 - push-event
-- push-notification
 
 ### Notification service
 
 A *notification service* notifies users of about events or something.
 
-Each user can authenticate only one host as a notification service.
-
 #### Actions
 
 An *notification service* SHOULD implement following actions' handlers.
 
-- fetch-notifications
-- subscribe-notifications
-- unsubscribe-notifications
-- extend-notifications-subscription
+- create-notification
 
 
 ## [Actions](actions.md)

@@ -24,11 +24,15 @@ yayaka
 
 - **subscriber-hosts** OPTIONAL
   - **hosts** array  
-    An array of hosts to use as a subscriber social graph.
+    An array of hosts to use as subscriber social graph services.
 
 - **publisher-hosts** OPTIONAL
   - **hosts** array  
-    An array of hosts to use as a publisher social graph.
+    An array of hosts to use as publisher social graph services.
+
+- **notification-hosts** OPTIONAL
+  - **hosts** array  
+    An array of hosts to use as notification services.
 
 - **primary-publisher-host** OPTIONAL
   - **host** string  
@@ -36,7 +40,7 @@ yayaka
 
 - **primary-repository-host** OPTIONAL
   - **host** string  
-    A host to use as a primary repository.
+    A host to use as a primary repository service.
 
 - **primary-notification-host** OPTIONAL
   - **host** string  
@@ -51,12 +55,8 @@ yayaka
 - **max-timeline-subscription-length** OPTIONAL
   - **seconds** integer
 
-- **max-notification-subscription-length** OPTIONAL
-  - **seconds** integer
-
 - **biography** OPTIONAL
-  - **text** string  
-    A host to use as a primary notification service.
+  - **text** string
 
 - **links** OPTIONAL
   - **urls** array  
@@ -128,6 +128,25 @@ Deletes post, repost, reply or quote.
 **body** has following properties.
 - **event-id** string
 - **body** object
+
+### follow-notification
+
+**body** has following properties
+- **identity-host** string
+- **user-id** string
+- **social-graph-host** string
+
+### reply-notification
+
+**body** is the same as the reply event's body.
+
+### repost-notification
+
+**body** is the same as the repost event's body.
+
+### quote-notification
+
+**body** is the same as the quote event's body.
 
 
 ## Content types
