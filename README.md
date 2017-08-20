@@ -1,8 +1,7 @@
 # Yayaka Protocol
 
-Yayaka Protocol is a yet another protocol for highly distributed social blogging.
+Yayaka Protocol is a protocol for highly distributed social blogging.
 It enables each instances not to have to implement all functions of distributed social blogging.
-It's also for **any type** of highly distributed web application.
 
 Yayaka Protocol is inspired by [HVDSGM (ja)](https://hakabahitoyo.wordpress.com/2017/05/22/hvdsgm/).
 
