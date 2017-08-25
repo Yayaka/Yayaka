@@ -94,7 +94,7 @@ Insert the attribute if a value is not *null* and the attribute is not exists.
 - Sender MUST be an authorized presentation service.
 - Payload has following properties.
   - **user-id** string
-  - **attributes** array OPTIONAL  
+  - **attributes** array
     An array of objects which have following properties.
     - **protocol** string
     - **key** string
@@ -122,12 +122,12 @@ An action to fetch user's profile and authorized services list.
   - **protocol** string
   - **key** string
   - **value** object
-  - **sender-host** string OPTIONAL
+  - **sender-host** string
 - **authorized-services** array  
   An array of objects which have following properties.
   - **host** string
   - **service** string
-  - **sender-host** string OPTIONAL
+  - **sender-host** string
 
 ## fetch-user-by-name
 
@@ -146,12 +146,12 @@ Ac action to fetch user's profile and authorized services list.
   - **protocol** string
   - **key** string
   - **value** object
-  - **sender-host** string OPTIONAL
+  - **sender-host** string
 - **authorized-services** array  
   An array of objects which have following properties.
   - **host** string
   - **service** string
-  - **sender-host** string OPTIONAL
+  - **sender-host** string
 
 
 
@@ -260,7 +260,7 @@ An action to fetch an event.
 - **type** string
 - **body** object  
   Contained contents SHOULD MUST be inlined.
-- **sender-host** string OPTIONAL
+- **sender-host** string
 - **created-at** datetime
 
 
