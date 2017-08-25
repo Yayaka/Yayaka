@@ -129,6 +129,32 @@ An action to fetch user's profile and authorized services list.
   - **service** string
   - **sender-host** string OPTIONAL
 
+## fetch-user-by-name
+
+Ac action to fetch user's profile and authorized services list.
+
+- Destination MUST be an identity service.
+- Payload has following properties.
+  - **user-name** string
+
+### Answer
+
+*body* has following properties.
+- **user-id** string
+- **attributes** array  
+  An array of objects which have following properties.
+  - **protocol** string
+  - **key** string
+  - **value** object
+  - **sender-host** string OPTIONAL
+- **authorized-services** array  
+  An array of objects which have following properties.
+  - **host** string
+  - **service** string
+  - **sender-host** string OPTIONAL
+
+
+
 
 ## get-token
 
