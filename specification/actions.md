@@ -260,7 +260,8 @@ An action to fetch an event.
 - **type** string
 - **body** object  
   Contained contents SHOULD MUST be inlined.
-- **sender-host** string
+- **sender-host** string  
+  A presentation host which called *create-event*.
 - **created-at** datetime
 
 
@@ -377,7 +378,8 @@ An action to fetch timeline.
   - **protocol** string
   - **type** string
   - **body** object
-  - **sender-host** string
+  - **sender-host** string  
+    A presentation host which called *create-event*.
   - **created-at** datetime
 
 
@@ -449,7 +451,8 @@ An action to push an event.
   - **protocol** string
   - **type** string
   - **body** object
-  - **sender-host** string
+  - **sender-host** string  
+    A presentation host which called *create-event*.
   - **created-at** datetime
 
 ### Answer
@@ -472,7 +475,8 @@ An action to broadcast an event.
   - **protocol** string
   - **type** string
   - **body** object
-  - **sender-host** string
+  - **sender-host** string  
+    A presentation host which called *create-event*.
   - **created-at** datetime
 
 ### Answer
