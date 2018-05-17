@@ -15,14 +15,14 @@ Others are specified in below.
 </table>
 
 ## Background
-Starting from thinking about a word, "communication".
-In here, we extend and limit the meaning of "communication";
+The term communication, can be said that it is widely interpreted word.
+In here, we extend and limit the meaning of the term;
 Every part of a process of passing something expressed by human (or machine) to other humans.
 Important points of this meaning are;
 the "something" includes the any kind of work,
 and the receiver is a human, not a machine.
-For example, both of writing and publishing this document and reading this document
-are a part of "communication".
+A good example would be the relation between publishing and reading this document.
+They look apart but when we follow this definition, they are both a part of communication.
 
 Also, every "communication" has one or more carriers
 such as voices, books, and internet.
@@ -48,7 +48,7 @@ Inequality of power make us less creative.
 If we had authoritarians on a carrier, we might be unjustly sensored or banned from there.
 In a good carrier, each one of senders, receivers, and carriers should be equal,
 and there is no trouble like that.
-4. Network built by preferences:
+4. Network built on preferences:
 Receivers can not take all of informations even if they could use their whole life.
 Additionally, senders do not want to share their expressions to each living human on Earth
 unless they are absolutely confident.
@@ -56,6 +56,6 @@ Therefore, receivers need to select sources, and senders need to select destinat
 Good carriers should let them do.
 
 From beginning with thinking about communication, finally, good carrier is illustrated.
-Because we desire good carriers, Yayaka protocol is created.
+Because we desire the good carriers, Yayaka protocol is created.
 Yayaka protocol is a minimal communication protocol
 which tries to implement a good carrier in the current internet world.
