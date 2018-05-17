@@ -1,6 +1,6 @@
 # Yayaka Protocol
 
-## Essencial Attributes from Amorphos Protocol
+## Attributes from Amorphos Protocol
 This document specifies these attributes at very beginning of it
 in order to briefly show that this protocol is a service protocols of Amorphos protocol.
 Others are specified in below.
@@ -14,7 +14,7 @@ Others are specified in below.
 </tbody>
 </table>
 
-## Background
+## Introduction
 The term communication, can be said that it is widely interpreted word.
 In here, we extend and limit the meaning of the term;
 Every part of a process of passing something expressed by human (or machine) to other humans.
@@ -59,3 +59,19 @@ From beginning with thinking about communication, finally, good carrier is illus
 Because we desire the good carriers, Yayaka protocol is created.
 Yayaka protocol is a minimal communication protocol
 which tries to implement a good carrier in the current internet world.
+
+## Related Work
+
+## Terminology
+
+## Basic Concepts
+
+## Amorphos Services
+
+## Amorphos Actions
+
+## Timeout And Retransmission
+
+## Acknowledgements
+
+## References
