@@ -15,6 +15,12 @@ Others are specified in below.
 </tbody>
 </table>
 
+## RFC 2119
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and
+"OPTIONAL" in this document are to be interpreted as described in
+RFC 2119.
+
 ## Introduction
 The term communication, can be said that it is widely interpreted word.
 In here, we extend and limit the meaning of the term;
