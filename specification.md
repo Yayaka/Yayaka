@@ -1,4 +1,5 @@
 # Yayaka Protocol
+This document specifies Yayaka protocol.
 
 ## Attributes from Amorphos Protocol
 This document specifies these attributes at very beginning of it
@@ -32,7 +33,7 @@ As an example, when we use voices to communicate, it can not reach to Brazil fro
 unless using other carriers, and
 when a carrier is sensored by a bad dictator,
 people can not express their feelings freely.
-From above, we characterize good carriers by 4 factors.
+To characterize good carriers, we suggests 5 factors.
 
 1. Handle any kind of work:
 People use many types of expression to communicate.
@@ -48,19 +49,26 @@ Inequality of power make us less creative.
 If we had authoritarians on a carrier, we might be unjustly sensored or banned from there.
 In a good carrier, each one of senders, receivers, and carriers should be equal,
 and there is no trouble like that.
-4. Network built on preferences:
+4. Social graph based on preferences:
 Receivers can not take all of informations even if they could use their whole life.
 Additionally, senders do not want to share their expressions to each living human on Earth
 unless they are absolutely confident.
 Therefore, receivers need to select sources, and senders need to select destination.
 Good carriers should let them do.
+5. Easy to maintain:
+This factor is easy to explain the reason.
+If a carrier is difficult to maintain, it may be easy to end.
+We need sustainable networks built by good carriers.
 
 From beginning with thinking about communication, finally, good carrier is illustrated.
 Because we desire the good carriers, Yayaka protocol is created.
-Yayaka protocol is a minimal communication protocol
+Yayaka protocol is a communication protocol
 which tries to implement a good carrier in the current internet world.
 
 ## Related Work
+
+- OStatus
+- ActivityPub
 
 ## Terminology
 
