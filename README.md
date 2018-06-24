@@ -24,7 +24,7 @@ services which are different from yayaka services, types of events, and types of
 
 ## Specification
 
-- [Yayaka Protocol Specification](specification/index.md).
+- [Yayaka Protocol Specification](specification.md).
 
 
 ## Implementations
